@@ -1,0 +1,11 @@
+/*=======Font Set Up============*/
+@import url(http://fonts.googleapis.com/css?family=Comfortaa:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/*============Main Fonts for Everything other than Copy====================*/
+$main-font-family: Comfortaa, sans-serif !default;
+$font-size: 18px !default;
+$font-color: #000 !default; 
+
+/*============Secondary Fonts for Copy====================*/
+$sec-font-family: Open Sans, sans-serif;

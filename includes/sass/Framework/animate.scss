@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////VARIABLES//////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+@import "_mixins.scss";
+////
+//Directional 
+////////////////////////////////////
+$left: '.left';
+$right: '.right';
+$up: '.up';
+$down: '.down';
+
+.windblow {
+    &#{$right} {
+        @-webkit-keyframes windblow-right {
+            from {
+               
+            }
+            to {
+                
+            }
+        }
+        @keyframes windblow-right {
+            from {
+                
+            }
+            to {
+                
+            }
+        }
+        @include animation(windblow-right 1.5s forwards);
+    }
+    &#{$left} {
+        
+    }
+    &#{$up} {
+        
+    }
+    &#{$down} {
+        
+    }
+}

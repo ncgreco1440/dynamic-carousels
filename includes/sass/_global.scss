@@ -1,0 +1,496 @@
+/*==========Coffee Color Scheme==========*/
+
+$hazelnut: #c59363; //orange
+$french-vanilla: #cdbeab; //darker vanilla
+$dark-roast: #6d4d2b; //darker brown
+$cream: #ae9984; //lighter vanilla
+$white: #fff;
+$black: #000;
+
+
+/*=======Base HTML Tags============*/
+html {
+    font-family: $main-font-family;
+    font-size: $font-size;
+    -webkit-text-size-adjust: $font-size;
+    -ms-text-size-adjust: $font-size; 
+    color: $font-color;
+}
+body {
+    margin: 0;
+    @include perspective(1000px);
+}
+
+section { 
+    overflow: auto;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    &:link, &:visited, &:hover, &:focus  {
+        text-decoration: none;
+    }
+}
+
+p {
+    font-family: $sec-font-family;
+    color: $dark-roast;
+    margin: 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    display: block;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+h1 {
+    margin: .25em 0; 
+    font-size: 3em;
+    color: $cream;
+}
+
+h2 {
+    font-size: 2em;
+    color: $cream;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: $cream;
+}
+
+h4 {
+    font-size: 1em;
+    color: $dark-roast;
+}
+
+h5 {
+    font-size: 1em;
+    color: $dark-roast;
+}
+
+h6 {
+    font-size: 1em;
+    color: $dark-roast;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+code, kbd, pre, samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+ol, ul {
+    margin: 1em 0;
+    padding: 0 0 0 3em;
+    list-style: none;
+    list-style-image: none;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+*::-webkit-input-placeholder {
+    color: $dark-roast;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: $dark-roast;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: $dark-roast;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: $dark-roast;
+}
+
+form { 
+    button, input {
+        margin-bottom: 1em;
+        font-family: $sec-font-family;
+        display: block;
+        width: 100%;
+        padding: .75em;
+        font-size: 1em;
+        line-height: 1.5em;
+        background-color: $white;
+        color: $dark-roast;
+        float: left;
+        border: 1px solid $hazelnut;
+        border-radius: 5px;
+        &:active, &:focus {
+            background-color: $french-vanilla;
+            box-shadow: none;
+            outline: none;
+            color: $white;
+        }
+    }
+
+    button, select {
+        text-transform: none;
+    }
+
+    textarea {
+        font-family: $sec-font-family;
+        font-size: 1em;
+        outline: 0;
+        resize: none;
+        padding: .75em;
+        line-height: 1.5em;
+        height: 179px;
+        width: 100%;
+        background-color: $white;
+        color: $dark-roast;
+        border: 1px solid $hazelnut;
+        overflow: auto;
+        border-radius: 5px;
+        &:active, &:focus {
+            outline: 0;
+            box-shadow: none;
+            background-color: $french-vanilla;
+            color: $white;
+        }
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+        height: 18px;
+        width: 18px;
+    }
+
+    /*        input[type="submit"] {
+                cursor: pointer;
+                margin-top: 2.22em;
+                font-family: $main-font-family;
+                padding: 1em;
+                font-size: 1.5em;
+                line-height: 0;
+                width: 150px;
+                &:hover {
+                    background-color: $dark-roast;
+                }
+            }*/
+
+    label {
+        font-family: $main-font-family;
+        padding: .75em 0em .50em 0em;
+        display: block;
+        float: left;
+        color: $french-vanilla;
+        font-size: 1.5em;
+    }
+}
+
+header {
+    padding: 0;
+    nav {
+        .website-logo {
+            position:absolute;
+            display: inline;
+            padding: 0;
+            z-index:10001;
+            img {
+                padding: .55em 2em;
+                float: left;
+            }
+        }
+        ul {
+            position:absolute;
+            z-index:10000;
+            margin: 0;
+            padding: 2em 0em 0em 0em;
+            width: 100%;
+            text-align: right;
+            border-bottom: 5px solid $dark-roast;
+            background-color: $white;
+            li {
+                display: inline-block;
+                padding: 1.25em 3em;
+                a {
+                    cursor: pointer;
+                    color: $hazelnut;
+                    text-decoration: none;
+                    font-size: 1.5em;
+                    border-bottom: none;
+                    &:visited {
+                        text-decoration: none;
+                    }
+                    &:hover, &:focus {
+                        border-bottom: 5px solid $hazelnut;
+                        @include transition(border 0.25s);
+                    }
+                }
+                &.link-active {
+                    a {
+                        border-bottom: 5px solid $hazelnut;
+                    }
+                }
+                &#hamburgerMenu {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 3em 0em 0em 0em;
+    div {
+        background-color: $hazelnut;
+        h4 {
+            font-weight: normal;
+            text-align: center;
+            color: $white;
+            margin: 0;
+            padding: 1.50em;
+        }
+    }
+}
+
+.button {
+    cursor: pointer;
+    margin-top: .45em;
+    margin-right: 1em;
+    font-family: $main-font-family;
+    padding: 1em;
+    font-size: 1.5em;
+    line-height: 0;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid $hazelnut;
+    &:hover {
+        background-color: $french-vanilla;
+        color: $white;
+        @include transition(background-color 0.25s);
+    }
+}
+
+.copyDiv {
+    padding: 0em 0em 1em 0em;
+    h2 {
+        margin: 2.5em 0em 1em 0em;
+    }
+    &.bottom-line {
+        border-bottom: 1px solid $hazelnut;
+    }
+}
+
+.imgBorder {
+    margin: 0em auto;
+    padding: 2em;
+    max-width: 725px;
+    height: auto;
+    border: 1px solid $hazelnut;
+    border-radius: 5px;
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-height: 400px;
+        @include box-shadow(38px 0px 0px #fff, -38px 0px 0px #fff);
+    }
+    &.home {
+        margin: 5em auto;
+    }
+}
+
+.twitterCalendar {
+    ul {
+        li {
+            display: inline-block;
+            margin: 0em .7em; 
+            padding: .25em;
+            border: 1px solid $hazelnut;
+            border-top: none;
+            border-bottom: none;
+            border-radius: 5px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.textBorder {
+    //margin: 2.5em auto;
+    padding: 5em;
+    //max-width: 725px;
+    //height: auto;
+    min-height: 313px;
+    border: 1px solid $hazelnut;
+    border-radius: 5px;
+    position: relative;
+    .twitterCtrl {
+            //padding: .25em;
+            width: 100%;
+            top: 20px;
+            //position: absolute;
+            z-index:1001;
+            .left-button {
+                //top: 50px;
+                //left: 6px;
+            }
+            .right-button {
+                //top: 50px;
+                //left: 96%;
+            }
+            .triangle {
+                &.lf {
+                    //position: absolute;
+                    float:left;
+                    width: 0;
+                    height: 0;
+                    border-top: 10px solid transparent;
+                    border-right: 20px solid $hazelnut;
+                    border-bottom: 10px solid transparent;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                &.rt {
+                    float:right;
+                    //position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-top: 10px solid transparent;
+                    border-left: 20px solid $hazelnut;
+                    border-bottom: 10px solid transparent;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    .shadow {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        @include box-shadow(92px 0px 0px #fff, -92px 0px 0px #fff);
+    }
+    .twitterImg {
+        display: block;
+        margin: 0 auto;
+        width: 125px;
+        height: auto; 
+        border-radius: 100%;
+    }
+    .twitterName {
+        display: block;
+        margin: 1em 0em 2em 0em;
+        text-align: center;
+        color: $hazelnut;
+    }
+    .twitterStream {
+        .twitterDate {
+            display: block;
+            margin-top: 1em;
+            text-align: center;
+            color: $hazelnut;
+        }
+        .twitterText {
+            text-align: center;
+            font-size: 1.5em;
+            font-family: $sec-font-family;
+            color: $dark-roast;
+        }
+    }
+}
+
+.title-search {
+    h1 {
+        display: inline-block;
+    }
+    .search-work {
+        font-family: $sec-font-family;
+        float: right;
+        margin: 2em 4em 0em 0em;
+        padding: .75em;
+        font-size: 1em;
+        line-height: 1.5em;
+        background-color: $white;
+        color: $dark-roast;
+        border: 1px solid $hazelnut;
+        border-radius: 5px;
+        &:active, &:focus {
+            background-color: $french-vanilla;
+            box-shadow: none;
+            outline: none;
+            color: $white;
+        }
+    }
+}
+
+.work-title {
+    text-align: center;
+    &:hover {
+        border-left: 3px solid $hazelnut;
+        border-right: 3px solid $hazelnut;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+.worklinks {
+    .ext-work-btn {
+        display:block;
+        min-width: 297px;
+        text-align: center;
+        margin: 2.5em auto 0em auto;
+        &:hover,&:active {
+            a {
+                color: $white;
+            }
+        }
+        a {
+            color: $dark-roast;
+        }
+        &.button{
+            line-height: 1em;
+        }
+    }
+}
+
+.page {
+    width: 100%;
+    position: absolute;
+    top: 120px;
+    bottom: 0;
+}
+
+.extendedWrapper {
+    width: 300%;
+}

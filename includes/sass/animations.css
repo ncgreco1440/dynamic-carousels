@@ -1,0 +1,266 @@
+@keyframes rotateFall {
+    0%      { transform: rotateZ(0deg); }
+    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40%     { transform: rotateZ(17deg); }
+    60%     { transform: rotateZ(16deg); }
+    100%    { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@-webkit-keyframes slideOutLeft {
+    to      { 
+        -webkit-transform: translateX(-100%); 
+    }
+}
+@keyframes slideOutLeft {
+    to      { 
+        transform: translateX(-100%); 
+    }
+}
+
+@-webkit-keyframes slideOutRight {
+    to      { 
+        -webkit-transform: translateX(100%); 
+        opacity: 0.3;
+    }
+}
+@keyframes slideOutRight {
+    to      { 
+        transform: translateX(100%);
+        opacity: 0.3;
+    }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+    to      { 
+        -webkit-transform: translateZ(-3000px) rotateZ(360deg); 
+        opacity: 0; 
+    }
+}
+@keyframes rotateOutNewspaper {
+    to      { 
+        transform: translateZ(-3000px) rotateZ(360deg); 
+        opacity: 0; 
+    }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@-webkit-keyframes scaleUp {
+    from    { 
+        -webkit-transform: scale(0.8);
+        opacity: 0.3;
+    }
+}
+@keyframes scaleUp {
+    from    {  
+        -webkit-transform: scale(0.8); 
+        -moz-transform: scale(0.8);
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+/* scale up */
+@-webkit-keyframes scaleDown {
+    to    { 
+        -webkit-transform: scale(0);
+        opacity: 0;
+    }
+}
+@keyframes scaleDown {
+    to    {  
+        -webkit-transform: scale(0); 
+        -moz-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* slide in from the right */
+@-webkit-keyframes slideInRight {
+    0%    { 
+        -webkit-transform:translateX(100%); 
+        display:none;
+    }
+    75% {
+        -webkit-transform:translateX(100%);
+        display:none;
+    }
+    100%     { 
+        -webkit-transform: translateX(0); 
+        display:none;
+    }
+}
+@keyframes slideInRight {
+    0%    { 
+        transform:translateX(100%); 
+        display:none;
+    }
+    75% {
+        transform:translateX(100%);
+        display:none;
+    }
+    100%      { 
+        transform: translateX(0); 
+        display:none;
+    }
+}
+
+/* slide in from the bottom */
+@-webkit-keyframes slideInUp {
+    from    { 
+        -webkit-transform:translateY(100%); 
+    }
+    to      { 
+        -webkit-transform: translateY(0); 
+    }
+}
+@keyframes slideInUp {
+    from    { 
+        transform:translateY(100%); 
+    }
+    to      { 
+        transform: translateY(0); 
+    }
+}
+
+/* slide out to the bottom */
+@-webkit-keyframes flipUpOut {
+    to      { 
+        -webkit-transform: rotateX(90deg); 
+        opacity: 0;
+    }
+}
+@keyframes flipUpOut {
+    to      { 
+        transform: rotateX(90deg); 
+        opacity: 0;
+    }
+}
+
+/* Flip 90 degrees inwards to the top */
+@-webkit-keyframes flipOutUp {
+    from    { 
+        -webkit-transform:rotateX(0); 
+    }
+    to      { 
+        opacity: 0;
+        -webkit-transform: rotateX(-90deg); 
+    }
+}
+@keyframes flipOutUp {
+    from    { 
+        transform:rotateX(0); 
+    }
+    to      { 
+        opacity: 0;
+        transform: rotateX(-90deg); 
+    }
+}
+
+/* Spin, Scale, and Fade Out */
+@-webkit-keyframes spinScaleFadeOut {
+    to      { 
+        opacity: 0;
+        -webkit-transform: rotateZ(-1080deg) scale(0.25); 
+    }
+}
+@keyframes spinScaleFadeOut {
+    to      { 
+        opacity: 0;
+        transform: rotateZ(-1080deg) scale(0.25); 
+    } 
+}
+
+/* Flip Up Inwards */
+@-webkit-keyframes flipUp {
+    from      { 
+        -webkit-transform-origin: 100% 100%;
+        opacity: 0;
+        -webkit-transform: rotateX(90deg);
+    }
+    to      { 
+        -webkit-transform-origin: 100% 100%;
+        opacity: 1;
+        -webkit-transform: rotateX(0deg);
+    }
+}
+@keyframes flipUp {
+    from      { 
+        -moz-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+        opacity: 0;
+        transform: rotateX(90deg);
+    }
+    to      { 
+        -moz-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+        opacity: 1;
+        transform: rotateX(0deg);
+    } 
+}
+
+/* Fade Out */
+@-webkit-keyframes fadeOut {
+
+    to      { 
+        -webkit-opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    to      { 
+        opacity: 0;
+    } 
+}
+
+/* Fade Out */
+@-webkit-keyframes fadeIn {
+
+    to      { 
+        -webkit-opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    to      { 
+        opacity: 1;
+    } 
+}
+
+.header-animate.ng-enter   {
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-animation: flipUp 0.5s ease-in; z-index: 8888;
+    animation: flipUp 0.5s ease-in; z-index: 8888; 
+}
+
+.ng-enter   {
+    -webkit-animation: scaleUp 0.5s ease-in; z-index: 8888;
+    animation: scaleUp 0.5s ease-in; z-index: 8888; 
+}
+
+.ng-leave   {
+    -webkit-animation: slideOutLeft 0.5s ease-in; z-index: 9999;
+    animation: slideOutLeft 0.5s ease-in; z-index: 9999; 
+}
+
+.page-home.ng-leave   {
+    -webkit-animation: flipUpOut 0.5s ease-in; z-index: 9999;
+    animation: flipUpOut 0.5s ease-in; z-index: 9999; 
+}
+
+.ng-hide.ng-hide-add-active {
+    display: block !important;
+}
+
+.ng-hide-add {
+    -webkit-animation: scaleDown 0.25s ease-in; z-index: 9999;
+    animation: scaleDown 0.25s ease-in; z-index: 9999; 
+}
+
+.ng-hide-remove {
+    -webkit-animation: scaleUp .5s; z-index: 8888;
+    animation: scaleUp .5s; z-index: 8888; 
+}

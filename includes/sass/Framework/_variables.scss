@@ -1,0 +1,24 @@
+//Grid Variables 
+
+$grid-columns: 12;
+$grid-max-width: 1600px;
+
+
+//Breakpoints, Generic
+
+$breakpoint-small-phone: "only screen and (max-width: 481px)";
+$breakpoint-smart-phone: "only screen and (max-width: 767px)";
+$breakpoint-XGA-IPAD: "only screen and (max-width: 1024px)";
+$breakpoint-WXGA-TABLET: "only screen and (max-width: 1366px)";
+
+/*
+These variables give us the amount of columns we want to work with, and can 
+easily be altered. We've also stored some breakpoints in variables as strings,
+even though we're only using one at the moment.
+
+Sass mixins are chunks of code which we can define once and then re-use 
+elsewhere in our project. For example, we could take the very first set of 
+rules where we setup border-box and extract most of that into a mixin. 
+
+Set up a new _mixins.scss file
+*/

@@ -1,0 +1,81 @@
+@import 'compass';
+@import 'variables';
+@import 'mixins';
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    //Thanks to the mixing, we never have to write browser specific attributes.
+    @include border-box;
+}
+
+.wrapper,
+.row {
+    @extend %clearfix;
+}
+
+/*
+Next make some use out of the variables we set earier.
+*/
+
+.wrapper {
+    width: 100%;
+    //max-width: $grid-max-width;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/*
+Note: columns are made with mobile first in mind which is why their width
+is set to 100% initially and then changed accordingly via media queries. 
+
+To use our final variable, $grid-columns, we need to make use of some more 
+Sass functionality; loops.
+
+Our column width definitions are all exactly the same, apart from the actual 
+values. It will be far cleaner if we output a column definition for as many 
+columns as we need, changing the values each time. To do this we can use a 
+Sass @for loop, which looks like this:
+*/
+
+@for $i from 1 through $grid-columns {
+    .column-#{$i} {
+        float: left;
+        padding: 1em;
+        margin: 0;
+        min-height: 1px;
+        width: 100% / $grid-columns * $i;
+    }
+}
+
+/*
+Interpolation, name for wrapping the variable in such a way below. 
+Special note, All media queries should be last in line within code.
+*/
+
+@media #{$breakpoint-smart-phone}{
+    @for $i from 1 through $grid-columns {
+        .column-#{$i} {
+            width: 100%;
+            //Demo purpose attributes, comment out when using for development.
+            /*text-align: center;
+            background-color: #ccc;
+            border: 1px solid #fff;*/
+        }
+    }
+}
+
+.padding {
+    padding: 1em;
+}
+
+.margin {
+    margin: 1em;
+}
+
+.centered {
+    margin: 0 auto;
+    float: none;
+}

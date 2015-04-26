@@ -1,0 +1,154 @@
+/**
+The first thing we're going to add is a global reset and box-sizing rule. 
+This will make sure that padding applied to our elements is added within 
+their calculated dimensions, giving us far more freedom for defining 
+column widths.
+*/
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+Next we'll add a rule to make sure any images used behave fluidly.
+*/
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/*
+Now some rules to make sure our wrapper element behaves itself.
+*/
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*
+All our row elements do is contain the columns, making sure that groups 
+of columns clear each other properly. Let's add some general .clearfix 
+rules to our wrapper and row elements.
+*/
+
+.wrapper:after,
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*
+We're going to have a range of column classes, depending on the size of each 
+one (for example .column-1 and .column-6. Let's use an attribute selector to 
+target and style all of these in one go.
+
+This selector says; take any element whose class contains the string column- 
+and apply the following styles. Therefore all our column elements will float 
+left, will have a padding of 1em (this forms our gutter and some vertical space)
+and will fill 100% of the viewport width (again, we're working mobile first 
+here). Lastly, the min-height: 1px makes sure that the column displays properly,
+even if it has no content.
+*/
+
+[class*='column-'] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    //The following below attributes are used exclusively for demo purposes.
+    background-color: #ccc;
+    border: 1px solid #fff;
+}
+
+/**
+GOING RESPONSIVE!!! 
+Right now the grid system is 100% functional for all mobile devices, moving on 
+to tablet and desktop device widths we will create media queries. 
+*/
+
+/*
+Any styles we place within this media query will take effect on screens of 30em
+and wider. We'll use this point to split up our columns into correct widths.
+
+How wide should each column be? That depends on how many columns we have. For 
+this demonstration I'm going work with twelve columns, so each one should be 
+exactly one twelfth (1/12) of the wrapper. For a column which spans two widths, 
+it will be two twelfths, and so on. Here's what that gives us:
+*/
+@media only screen and (min-width: 30em) {
+     .wrapper {
+        width: 95%;
+        max-width: 65em; 
+        }
+         
+    .column-1 {
+        width: 8.33333%; 
+        }
+         
+    .column-2 {
+        width: 16.66667%; 
+        }
+         
+    .column-3 {
+        width: 25%; 
+        }
+         
+    .column-4 {
+        width: 33.33333%; 
+        }
+         
+    .column-5 {
+        width: 41.66667%; 
+        }
+         
+    .column-6 {
+        width: 50%; 
+        }
+         
+    .column-7 {
+        width: 58.33333%; 
+        }
+         
+    .column-8 {
+        width: 66.66667%; 
+        }
+         
+    .column-9 {
+        width: 75%; 
+        }
+         
+    .column-10 {
+        width: 83.33333%; 
+        }
+         
+    .column-11 {
+        width: 91.66667%; 
+        }
+         
+    .column-12 {
+        width: 100%; 
+        } 
+}
+
+/*
+Our CSS grid works, but what would happen if we actually wanted sixteen columns 
+in our grid? Or even more? We'd have to recalculate every column and manually 
+enter it in our CSS file each time. Not to mention that our CSS would get longer
+and longer and more difficult to manage. Happily, Sass (or any other 
+preprocessor) can help us.
+
+Sass is going to help us clean up our CSS in all sorts of ways, but the first 
+thing we can do is extract any useful values and store them in variables. Begin 
+by starting off a new partial called "_variables.scss"; a Sass file which won't 
+be compiled into CSS directly, but we'll reference in our other files.
+*/

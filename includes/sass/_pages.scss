@@ -1,0 +1,316 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 5, 2015, 4:19:58 PM
+    Author     : Nico
+*/
+.framework {
+    @for $i from 1 through $grid-columns {
+        .column-#{$i} {
+            text-align: center;
+            background-color: #ccc;
+            border: 1px solid #fff;
+        }
+    }
+}
+
+.fourohfour {
+    background-color: #fff;
+    color: #fff;
+}
+
+.fourohthree {
+    background-color: #fff;
+    color: #fff;
+}
+
+.Animations {
+    /*    .stage {
+            padding: 0em 0em 0em 24em;
+            height: 150px;
+            background-color: $dark-roast;
+            margin: 1em auto;
+            @include perspective(1200px);
+        }*/
+    @-webkit-keyframes spinner {
+        from {
+            -webkit-transform: rotateY(0deg);
+        }
+        to {
+            -webkit-transform: rotateY(-360deg);
+        }
+    }
+    @keyframes spinner {
+        from {
+            -moz-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+        }
+        to {
+            -moz-transform: rotateY(-360deg);
+            -ms-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
+        }
+    }
+
+    /*    .spinner {
+            background-color: $cream;
+            opacity: 0.75;
+            outline: 1px solid transparent;
+            -webkit-transform-origin: 180px 0 0; 
+            @include animation(spinner linear infinite 6s);
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            p {
+                text-align: center;
+                color: $white;
+            }
+            img {
+                position: absolute;
+                border: 1px solid #ccc;
+                background: rgba(255,255,255,0.8);
+                @include box-shadow(0 0 0 0.2 inset);
+            }
+            &:hover {
+                -webkit-animation-play-state: paused;
+                animation-play-state: paused;
+            }
+        }*/
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        .container {
+            margin: 0 auto;
+            width: 210px;
+            height: 160px;
+            position: relative;
+        }
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute; 
+            @include perspective(1200px);
+            div {
+                display: block;
+                position: absolute;
+                width: 210px;
+                height: 160px;
+                left: 10px;
+                top: 10px;
+                opacity: 0.65;
+                border: 2px solid black;
+                outline: 1px solid transparent;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .container {
+        margin: 0 auto;
+        width: 210px;
+        height: 160px;
+        position: relative;
+        @include perspective(1200px);
+    }
+    .carousel {
+        width: 100%;
+        height: 100%;
+        position: absolute; 
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        div {
+            display: block;
+            position: absolute;
+            width: 210px;
+            height: 160px;
+            left: 10px;
+            top: 10px;
+            opacity: 0.65;
+            border: 2px solid black;
+            outline: 1px solid transparent;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+
+    .button {
+
+        background-color: $hazelnut;
+        border: 1px solid $dark-roast;
+        padding: 1em;
+        margin: 1em;
+        text-align: center;
+        color: $white;
+        &:hover, &:active {
+            color: $white;
+            background-color: $dark-roast;
+            @include transition (background-color .25s ease-in);
+        }
+        &#left{
+            float: left;
+        }
+        &#right {
+            float: right;
+        }
+    }
+}
+
+.Home {
+    #houseContainer {
+        height: 100vh;
+        //position: relative;
+        float: none;
+        padding: 6em 0em 0em 0em;
+        overflow: hidden;
+    }
+
+    #house {
+        position: relative;
+        width: 630px;
+        margin: 0 auto;
+    }
+
+    #house--roof {
+        //position: absolute;
+        width: 0; 
+        height: 0; 
+        border-left: 315px solid transparent;
+        border-right: 315px solid transparent;
+        border-bottom: 175px solid $dark-roast;
+    }
+
+    #house--chimney {
+        position: absolute;
+        height: 80px;
+        width: 50px;
+        background-color: $dark-roast;
+        top: 19%;
+        left: 8%;
+    }
+
+    #house--body {
+        //position: absolute;
+        border: 7px solid $cream;
+        border-bottom: none;
+        background-color: $cream;
+        width: 600px;
+        height: 250px;
+        margin: 0 auto;
+        @include perspective(320px);
+    }
+
+    .house--window {
+        position: absolute;
+        background-color: #e6e1d2;
+        z-index: 999;
+        width: 150px;
+        height: 100px;
+        top: 54%;
+        &#left-window {
+            left: 12%;
+        }
+        &#right-window {
+            left:64%;
+        }
+    }
+
+    .house--door {
+        position: absolute;
+        z-index: 3;
+        top: 0%;
+        left: 0%;
+        height: 175px;
+        width: 90px;
+        &#frame {
+            border: 10px solid $dark-roast;
+            @include perspective(320px);
+            border-bottom: none;
+            background-color: $white;
+            z-index: 4;
+            height: 185px;
+            width: 110px;
+            top: 56.5%;
+            left: 41.3%;
+        }
+        &#door {
+            cursor: pointer;
+            position: relative;
+            background-color: $hazelnut;
+            z-index: 1001;
+            transform-origin: 0 0;
+            @include box-shadow(0px 0px 0px 0px $white);
+            @include transition(all .25s linear);
+            &:hover, &:focus {
+                @include box-shadow(0px 0px 25px 10px $white);
+                @include transition(all .25s linear);
+            }
+            &.door--ani {
+                @include animation(doorani 1.5s forwards);
+            }
+            //transform: rotateY(45deg);
+            #knob {
+                background-color: $french-vanilla;
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                top: 50%;
+                left:80%;
+            }
+        }
+    }
+
+    @-webkit-keyframes doorani {
+        from {
+            -webkit-transform: rotateY(0deg);
+        }
+        to {
+            -webkit-transform: rotateY(90deg);
+        }
+    }
+    @keyframes doorani {
+        from {
+            transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+        }
+        to {
+            transform: rotateY(90deg);
+            -moz-transform: rotateY(90deg);
+        }
+    }
+    #about {
+        z-index: 10;
+    }
+
+
+
+    #work {
+        z-index: 11;
+    }
+
+
+
+    #news {
+        z-index: 12;
+    }
+
+
+
+    #contact {
+        z-index: 13;
+    }
+}
+
+
+
+
